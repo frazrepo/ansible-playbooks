@@ -1,0 +1,28 @@
+---
+- name: "Install custom utilities"
+  hosts: all
+  
+  tasks:
+
+    - name: Check if sanitizeme is installed
+      win_stat:
+        path: C:\Tools\sanitizeme.exe
+      register: sanitize_file
+
+    - name: Install sanitizeme
+      win_get_url:
+          url: https://github.com/frazrepo/sanitizeme/releases/download/v1.0/sanitizeme.exe
+          dest: C:\Tools\sanitizeme.exe 
+      when: sanitize_file.stat.exists == false
+        
+    - name: Check if ga2v is installed
+      win_stat:
+        path: C:\Tools\ga2v.exe
+      register: ga2v_file
+
+    - name: Install ga2v
+      win_get_url:
+          url: https://github.com/frazrepo/ga2v/releases/download/v1.0/ga2v.exe
+          dest: C:\Tools\ga2v.exe
+      when: ga2v_file.stat.exists == false
+        

@@ -1,0 +1,24 @@
+---
+- name: "Install other terminal utilities"
+  hosts: all
+  
+  tasks:
+    - name: Install youtube-dl
+      win_chocolatey:
+        name: youtube-dl
+        state: present
+
+    - name: Install windirstat
+      win_chocolatey:
+        name: windirstat
+        state: present
+
+    - name: Install filezilla
+      win_chocolatey:
+        name: filezilla
+        state: present
+
+    - name: Install ffmpeg
+      win_chocolatey:
+        name: ffmpeg
+        state: present
