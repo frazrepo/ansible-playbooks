@@ -1,0 +1,18 @@
+# nodejs role ansible-galaxy
+# https://github.com/geerlingguy/ansible-role-nodejs
+- name: geerlingguy.nodejs
+
+# golang role ansible-galaxy
+# https://github.com/fubarhouse/ansible-role-golang
+- name: fubarhouse.golang
+
+# pip role ansible-galaxy
+# https://github.com/geerlingguy/ansible-role-pip
+- name: geerlingguy.pip
+
+# docker role ansible-galaxy
+# https://github.com/geerlingguy/ansible-role-docker
+- name: geerlingguy.docker
+
+# from GitHub
+# - src: https://github.com/frazrepo/ansible-role-vim
