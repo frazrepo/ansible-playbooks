@@ -1,5 +1,10 @@
 - name : Install all linux tools
   hosts: all
+  become: yes
+  tasks:
+    - name: Install nodejs
+      import_role:
+        name: geerlingguy.nodejs
 
 - import_playbook: linux/vim.yml
 - import_playbook: linux/git.yml
