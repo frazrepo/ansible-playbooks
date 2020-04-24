@@ -1,5 +1,6 @@
 - name : Install all linux tools
   hosts: all
 
-- import_playbook: ping.yml
+- import_playbook: linux/vim.yml
+- import_playbook: linux/git.yml
   
