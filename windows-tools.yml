@@ -1,0 +1,5 @@
+- name : Install all Windows tools
+  hosts: all
+
+- import_playbook: ping.yml
+  
