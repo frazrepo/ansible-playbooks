@@ -1,0 +1,20 @@
+---
+- name: "Install Vim and Vim Configuration"
+  hosts: all
+  vars:
+    repo_url: https://github.com/frazrepo/vimrc.git
+    repo_version: master
+    vim_dir : '{{ ansible_env.HOME }}/.vim_runtime'
+  
+  tasks:
+    - name: Pull vimrc repository
+      git: repo={{repo_url}} dest={{vim_dir}} version=master
+
+    - name: Display Vim Installation Directory
+      debug:
+        msg: '{{vim_dir}}'
+
+    - name: Install vimrc
+      command: '{{vim_dir}}/install.sh'
+      args:
+        chdir: '{{vim_dir}}'

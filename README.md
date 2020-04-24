@@ -7,7 +7,7 @@ Ansible playbooks for windows and linux environment
 ## Linux host to install on Windows
 
 ```
-sudo ansible-playbook -i windows-inventory.txt windows/run-powershell.yml
+sudo ansible-playbook -i windows-inventory.txt ping.yml
 ```
 
 ## Linux host to install on Linux
