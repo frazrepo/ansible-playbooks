@@ -7,14 +7,16 @@
     vim_dir : '{{ ansible_env.HOME }}/.vim_runtime'
   
   tasks:
-    - name: "Install Vim"
+    - name: "Install Vim and related tools"
       become: yes
       apt: name= {{ item }} update_cache=yes state=latest
       with_items:
         - vim
+        - silversearcher-ag
 
     - name: "Pull vimrc repository"
       git: repo={{repo_url}} dest={{vim_dir}} version=master
+      ignore_errors: yes
 
     - name: Display Vim Installation Directory
       debug:
