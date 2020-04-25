@@ -19,6 +19,8 @@
         - cloc
         # lnav log
         - lnav
+        # tmux
+        - tmux
         
     - stat:
         path: /usr/local/bin/agrind
