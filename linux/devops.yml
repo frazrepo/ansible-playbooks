@@ -1,0 +1,43 @@
+---
+- name: "Install devops tools"
+  hosts: all
+  
+  tasks:
+    - name: "Install various container tools"
+      debug:
+        msg : Todo kubectx, kubens
+
+    - name: Install docker
+      become: yes
+      import_role:
+        name: geerlingguy.docker
+
+    - stat:
+        path: /usr/local/bin/kubectl
+      register: kubectl_file  
+
+    - name: Install kubectl
+      become: yes
+      shell: | 
+        curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+        chmod +x ./kubectl
+        sudo mv ./kubectl /usr/local/bin/kubectl
+      when: kubectl_file.stat.exists == false
+
+    # Go utilities
+    - name: check go version
+      command: go version
+      register: go_result
+      changed_when: no
+      ignore_errors: true
+
+    - set_fact:
+        go_path: "{{ lookup('env', 'GOPATH') | default(ansible_env.HOME+'/go', true) }}"
+      when: not go_result is failed
+
+
+    - name: "Install lazydocker"
+      shell: go get -u github.com/jesseduffield/lazydocker
+      environment:
+        GOPATH: "{{ go_path }}"
+      when: not go_result is failed

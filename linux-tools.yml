@@ -7,7 +7,7 @@
 # Utilities without GUI
 - import_playbook: linux/vim.yml
 - import_playbook: linux/utilities.yml
-- import_playbook: linux/container.yml
+- import_playbook: linux/devops.yml
 
 # Desktop tools
 - import_playbook: linux/desktop.yml

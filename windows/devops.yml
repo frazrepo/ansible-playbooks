@@ -1,0 +1,9 @@
+---
+- name: "Install common devops tools"
+  hosts: all
+  
+  tasks:
+    - name: Install terraform
+      win_chocolatey:
+        name: terraform
+        state: present
