@@ -24,6 +24,22 @@
         sudo mv ./kubectl /usr/local/bin/kubectl
       when: kubectl_file.stat.exists == false
 
+    - stat:
+        path: /usr/local/bin/kubectx
+      register: kubectx_file  
+
+    - name: Download kubectx, kubectl
+      git: repo=https://github.com/ahmetb/kubectx dest=/opt/kubectx version=master
+      ignore_errors: yes
+      when: kubectx_file.stat.exists == false
+
+    - name: Install kubectx and kubens
+      become: yes
+      shell: | 
+        sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+        sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+      when: kubectx_file.stat.exists == false
+
     # Go utilities
     - name: check go version
       command: go version
