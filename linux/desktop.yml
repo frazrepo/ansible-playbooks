@@ -1,0 +1,10 @@
+---
+- name: "Install desktop tools"
+  hosts: all
+  
+  tasks:
+    - name: "Install cherrytree" 
+      become: yes
+      apt: name= {{ item }} update_cache=yes state=latest
+      with_items:
+        - cherrytree

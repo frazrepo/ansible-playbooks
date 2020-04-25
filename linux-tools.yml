@@ -9,3 +9,5 @@
 - import_playbook: linux/vim.yml
 - import_playbook: linux/git.yml
 - import_playbook: linux/log.yml
+- import_playbook: linux/utilities.yml
+- import_playbook: linux/desktop.yml
