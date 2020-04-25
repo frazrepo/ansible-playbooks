@@ -31,3 +31,8 @@
         - darktable
         # bitmap image processor
         - gimp
+        
+    - name: Install vscode
+      become: yes
+      import_role:
+        name: gantsign.visual-studio-code

@@ -14,5 +14,9 @@
 # https://github.com/geerlingguy/ansible-role-docker
 - name: geerlingguy.docker
 
+# vscode role ansible-galaxy
+# https://github.com/gantsign/ansible-role-visual-studio-code
+- name: gantsign.visual-studio-code
+
 # from GitHub
 # - src: https://github.com/frazrepo/ansible-role-vim

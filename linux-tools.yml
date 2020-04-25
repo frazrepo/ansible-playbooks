@@ -1,15 +1,13 @@
 - name : Install all linux tools
   hosts: all
-  become: yes
-  tasks:
-    - name: Install nodejs
-      import_role:
-        name: geerlingguy.nodejs
 
+# Common: nodejs, go, python
+- import_playbook: linux/common.yml
+
+# Utilities without GUI
 - import_playbook: linux/vim.yml
 - import_playbook: linux/utilities.yml
 - import_playbook: linux/container.yml
-
 
 # Desktop tools
 - import_playbook: linux/desktop.yml
