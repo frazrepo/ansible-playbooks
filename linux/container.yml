@@ -1,0 +1,8 @@
+---
+- name: "Install container tools"
+  hosts: all
+  
+  tasks:
+    - name: "Install various container tools"
+      debug:
+        msg : Todo docker, kubectl, kubectx, kubens

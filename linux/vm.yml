@@ -1,0 +1,8 @@
+---
+- name: "Install virtual machine tools"
+  hosts: all
+  
+  tasks:
+    - name: "Install various vm tools"
+      debug:
+        msg : Todo virtualbox, multipass
