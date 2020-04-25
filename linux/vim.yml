@@ -15,9 +15,16 @@
         - silversearcher-ag
         - vifm
 
+
+    - name: "Check vimrc repository directory"
+      stat:
+        path: "{{ vim_dir }}" 
+      register: vimrc_dir
+
     - name: "Pull vimrc repository"
       git: repo={{repo_url}} dest={{vim_dir}} version=master
       ignore_errors: yes
+      when: vimrc_dir.stat.exists == false
 
     - name: Display Vim Installation Directory
       debug:
