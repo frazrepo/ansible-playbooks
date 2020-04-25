@@ -1,0 +1,19 @@
+---
+- name: "Install common tools"
+  hosts: all
+  
+  tasks:
+    - name: Install nodejs
+      win_chocolatey:
+        name: nodejs
+        state: present
+
+    - name: Install python
+      win_chocolatey:
+        name: python
+        state: present
+
+    - name: Install go
+      win_chocolatey:
+        name: go
+        state: present

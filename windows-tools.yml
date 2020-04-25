@@ -3,6 +3,10 @@
 
 # Common
 - import_playbook: windows/chocolatey.yml
+- import_playbook: windows/common.yml
   
 # Utilities 
 - import_playbook: windows/utilities.yml
+
+# Desktop
+- import_playbook: windows/desktop.yml

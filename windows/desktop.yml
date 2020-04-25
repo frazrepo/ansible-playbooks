@@ -1,0 +1,54 @@
+---
+- name: "Install dektop tools"
+  hosts: all
+  
+  tasks:
+    - name: Install vscode
+      win_chocolatey:
+        name: vscode
+        state: present
+
+    - name: Install notepadplusplus
+      win_chocolatey:
+        name: notepadplusplus
+        state: present
+
+    - name: Install launchy
+      win_chocolatey:
+        name: launchy
+        state: present
+
+    - name: Install astrogrep
+      win_chocolatey:
+        name: astrogrep
+        state: present
+        
+    - name: Install joplin
+      win_chocolatey:
+        name: joplin
+        state: present
+        
+    - name: Install cherrytree
+      win_chocolatey:
+        name: cherrytree
+        state: present
+
+    - name: Install glogg
+      win_chocolatey:
+        name: glogg
+        state: present
+
+    - name: Install fiddler
+      win_chocolatey:
+        name: fiddler
+        state: present
+
+    - name: Install postman
+      win_chocolatey:
+        name: postman
+        state: present
+
+    - name: Install pdfsam
+      win_chocolatey:
+        name: pdfsam
+        state: present
