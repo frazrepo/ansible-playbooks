@@ -5,7 +5,7 @@
   tasks:
     - name: Install nodejs
       win_chocolatey:
-        name: nodejs
+        name: nodejs-lts
         state: present
 
     - name: Install python
