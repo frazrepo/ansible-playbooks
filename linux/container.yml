@@ -6,3 +6,21 @@
     - name: "Install various container tools"
       debug:
         msg : Todo docker, kubectl, kubectx, kubens
+
+    # Go utilities
+    - name: check go version
+      command: go version
+      register: go_result
+      changed_when: no
+      ignore_errors: true
+
+    - set_fact:
+        go_path: "{{ lookup('env', 'GOPATH') | default(ansible_env.HOME+'/go', true) }}"
+      when: not go_result is failed
+
+
+    - name: "Install lazydocker"
+      shell: go get -u github.com/jesseduffield/lazydocker
+      environment:
+        GOPATH: "{{ go_path }}"
+      when: not go_result is failed

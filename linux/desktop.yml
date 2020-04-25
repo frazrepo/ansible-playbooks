@@ -31,6 +31,10 @@
         - darktable
         # bitmap image processor
         - gimp
+        # meld comparator
+        - meld
+        # glogg  log viewer
+        - glogg
         
     - name: Install vscode
       become: yes

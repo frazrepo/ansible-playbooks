@@ -22,3 +22,8 @@ Install a specific playbook group
 ```
 ansible-playbook -i linux-inventory.txt linux/utilities.yml
 ```
+# How to debug locally
+
+```
+ansible-playbook --connection=local -i 127.0.0.1, hello.yml
+```

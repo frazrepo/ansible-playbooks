@@ -3,7 +3,7 @@
   hosts: all
   
   tasks:
-    - name: "Install rename, jq, ncdu "
+    - name: "Install rename, jq, ncdu, git, cloc, lnav "
       become: yes
       apt: name= {{ item }} update_cache=yes state=latest
       with_items:
@@ -15,14 +15,11 @@
         - ncdu
         # git
         - git
-        
-    - name: "Install glogg, lnav"
-      become: yes
-      apt: name= {{ item }} update_cache=yes state=latest
-      with_items:
-        - glogg
+        # cloc: count lines of code
+        - cloc
+        # lnav log
         - lnav
-
+        
     - stat:
         path: /usr/local/bin/agrind
       register: agrind_file  
@@ -30,3 +27,38 @@
     - name: "Install angle grinder"
       shell: curl -L https://github.com/rcoh/angle-grinder/releases/download/v0.12.0/angle_grinder-v0.12.0-x86_64-unknown-linux-musl.tar.gz  | tar Ozxf -  | sudo tee /usr/local/bin/agrind > /dev/null && sudo chmod +x /usr/local/bin/agrind
       when: agrind_file.stat.exists == false
+
+    # Go utilities
+    - name: check go version
+      command: go version
+      register: go_result
+      changed_when: no
+      ignore_errors: true
+
+    - set_fact:
+        go_path: "{{ lookup('env', 'GOPATH') | default(ansible_env.HOME+'/go', true) }}"
+      when: not go_result is failed
+
+    - name: "Install gron - json grep"
+      shell: go get -u github.com/tomnomnom/gron
+      environment:
+        GOPATH: "{{ go_path }}"
+      register: gron
+      when: not go_result is failed
+
+    - debug: var=gron
+
+    - name: "Install gotop"
+      shell: go get -u go get github.com/cjbassi/gotop
+      environment:
+        GOPATH: "{{ go_path }}"
+      register: gotop
+      when: not go_result is failed
+    
+    - debug: var=gotop
+    
+    - name: "Install lazygit"
+      shell: go get -u github.com/jesseduffield/lazygit
+      environment:
+        GOPATH: "{{ go_path }}"
+      when: not go_result is failed
