@@ -1,0 +1,19 @@
+---
+- name: "Install terminal utilities"
+  hosts: all
+  
+  tasks:
+    - name: Create tools directory structure
+      win_file:
+        path: C:\Tools
+        state: directory
+
+    - name: Install git
+      win_chocolatey:
+        name: git
+        state: present
+
+    - name: Install vifm
+      win_chocolatey:
+        name: git
+        state: present
