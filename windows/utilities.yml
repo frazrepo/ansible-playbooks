@@ -37,6 +37,11 @@
       win_chocolatey:
         name: git
         state: present
+        
+    - name: Install ripgrep
+      win_chocolatey:
+        name: ripgrep
+        state: present
 
     - name: Install sysinternals
       win_chocolatey:
