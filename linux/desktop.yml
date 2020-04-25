@@ -3,8 +3,31 @@
   hosts: all
   
   tasks:
-    - name: "Install cherrytree" 
+    - name: "Add darktable ppa"
+      become: yes
+      apt_repository:
+        repo: ppa:ubuntuhandbook1/darktable
+
+    - name: "Add gimp ppa"
+      become: yes
+      apt_repository:
+        repo: ppa:otto-kesselgulasch/gimp        
+
+    - name: "Install various dekstop tools"
       become: yes
       apt: name= {{ item }} update_cache=yes state=latest
       with_items:
+        # note taking 
         - cherrytree
+        # screenshot
+        - shutter
+        # audio player
+        - audacious
+        # launcher
+        - synapse
+        # dock
+        - plank
+        # raw image processor
+        - darktable
+        # bitmap image processor
+        - gimp
