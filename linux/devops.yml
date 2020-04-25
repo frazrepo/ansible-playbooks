@@ -29,6 +29,7 @@
       register: kubectx_file  
 
     - name: Download kubectx, kubectl
+      become: yes
       git: repo=https://github.com/ahmetb/kubectx dest=/opt/kubectx version=master
       ignore_errors: yes
       when: kubectx_file.stat.exists == false
