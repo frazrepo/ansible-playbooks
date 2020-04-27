@@ -1,0 +1,62 @@
+---
+# tasks file for nodeexporter
+- name: Create temp directory
+  tempfile:
+   state: directory
+   suffix: nodeexporter
+  register: tmpdir
+
+- debug:
+    msg: Temp dir {{ tmpdir.path }}
+
+- name: Download node exporter
+  get_url:
+    url: https://github.com/prometheus/node_exporter/releases/download/v0.18.1/node_exporter-{{ nodeexporter_version }}.tar.gz
+    dest: "{{ tmpdir.path }}/node_exporter-{{ nodeexporter_version }}.tar.gz"
+
+
+- name: Extract nodeexporter.tar.gz archive
+  unarchive:
+    src: "{{ tmpdir.path }}/node_exporter-{{ nodeexporter_version }}.tar.gz"
+    dest: "{{ tmpdir.path }}"
+    remote_src: yes
+
+
+- name: Install node exporter
+  copy:
+    src: "{{ tmpdir.path }}/node_exporter-{{ nodeexporter_version }}/node_exporter"
+    dest: "/usr/local/bin/node_exporter"
+    remote_src: yes
+    mode: 0755
+
+- name: Clean temp directory
+  file:
+    path: "{{ tmpdir.path }}/"
+    state: absent
+
+- name: Add node_exporter user
+  user:
+    name: node_exporter
+    shell: /bin/false
+    system: True
+
+- name: Install node exporter service
+  copy:
+    src: "files/node_exporter.service"
+    dest: "/etc/systemd/system/node_exporter.service"
+
+- name: Reload Systemd Daemon
+  systemd:
+    daemon_reload: yes
+
+- name: Start node_exporter.service
+  systemd:
+    name: node_exporter.service
+    state: started
+
+- name: Enable node_exporter.service
+  systemd:
+    name: node_exporter.service
+    enabled: yes
+
+

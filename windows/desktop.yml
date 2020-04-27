@@ -37,6 +37,11 @@
       win_chocolatey:
         name: joplin
         state: present
+
+    - name: Install dropbox
+      win_chocolatey:
+        name: dropbox
+        state: present
         
     - name: Install cherrytree
       win_chocolatey:

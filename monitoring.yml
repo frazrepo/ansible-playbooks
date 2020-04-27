@@ -1,0 +1,8 @@
+- name : Monitoring tools installation
+  hosts: all
+  become: yes
+
+  vars:
+      nodeexporter_version: 0.18.1.linux-amd64
+  roles:
+     - nodeexporter

@@ -5,4 +5,11 @@
   tasks:
     - name: "Install various vm tools"
       debug:
-        msg : Todo virtualbox, multipass
+        msg : Todo  multipass
+
+    - name: "Install Virtualbox"
+      become: yes
+      apt: name= {{ item }} update_cache=yes state=latest
+      with_items:
+        # note taking 
+        - virtualbox-6.1
