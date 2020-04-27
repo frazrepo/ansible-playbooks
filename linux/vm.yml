@@ -6,7 +6,7 @@
   vars:
     virtualbox_repo_base_url: "https://download.virtualbox.org/virtualbox"
     virtualbox_version: 6.1
-    virtualbox_extpack_version: "{{ virtualbox_version}}.12"
+    virtualbox_extpack_version: "{{ virtualbox_version}}.6"
 
   tasks:
     - name: "Install various vm tools"
