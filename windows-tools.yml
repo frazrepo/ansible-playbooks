@@ -11,6 +11,9 @@
 # Desktop
 - import_playbook: windows/desktop.yml
 
+# Devops
+# - import_playbook: windows/devops.yml
+
 # Extra Utilities
 # - import_playbook: windows/utilities-extras.yml
 
