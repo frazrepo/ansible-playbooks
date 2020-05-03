@@ -7,8 +7,10 @@
       win_chocolatey:
         name: terraform
         state: present
+      ignore_errors: yes
 
     - name: Install kubectl
       win_chocolatey:
         name: kubernetes-cli
         state: present
+      ignore_errors: yes

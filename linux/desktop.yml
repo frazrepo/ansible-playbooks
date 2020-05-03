@@ -7,16 +7,19 @@
       become: yes
       apt_repository:
         repo: ppa:ubuntuhandbook1/darktable
+      ignore_errors: yes
 
     - name: "Add gimp ppa"
       become: yes
       apt_repository:
         repo: ppa:otto-kesselgulasch/gimp        
+      ignore_errors: yes
 
     - name: "Add peek ppa"
       become: yes
       apt_repository:
         repo: ppa:peek-developers/stable
+      ignore_errors: yes
 
     - name: "Install various dekstop tools"
       become: yes
@@ -47,3 +50,4 @@
       become: yes
       import_role:
         name: gantsign.visual-studio-code
+      ignore_errors: yes

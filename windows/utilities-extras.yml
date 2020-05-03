@@ -8,8 +8,10 @@
       win_chocolatey:
         name: windirstat
         state: present
+      ignore_errors: yes
 
     - name: Install filezilla
       win_chocolatey:
         name: filezilla
         state: present
+      ignore_errors: yes

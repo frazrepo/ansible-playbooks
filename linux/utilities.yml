@@ -21,6 +21,7 @@
         - lnav
         # tmux
         - tmux
+      ignore_errors: yes
         
     - stat:
         path: /usr/local/bin/agrind

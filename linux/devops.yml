@@ -11,6 +11,7 @@
       become: yes
       import_role:
         name: geerlingguy.docker
+      ignore_errors: yes
 
     - stat:
         path: /usr/local/bin/kubectl
@@ -23,6 +24,7 @@
         chmod +x ./kubectl
         sudo mv ./kubectl /usr/local/bin/kubectl
       when: kubectl_file.stat.exists == false
+      ignore_errors: yes
 
     - stat:
         path: /usr/local/bin/kubectx
@@ -40,6 +42,7 @@
         sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
         sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
       when: kubectx_file.stat.exists == false
+      ignore_errors: yes
 
     # Go utilities
     - name: check go version
@@ -58,3 +61,4 @@
       environment:
         GOPATH: "{{ go_path }}"
       when: not go_result is failed
+      ignore_errors: yes

@@ -7,83 +7,100 @@
       win_chocolatey:
         name: vscode
         state: present
+      ignore_errors: yes
 
     - name: Install notepadplusplus
       win_chocolatey:
         name: notepadplusplus
         state: present
+      ignore_errors: yes
 
     - name: Install sublimetext3
       win_chocolatey:
         name: sublimetext3
         state: present
+      ignore_errors: yes
 
     - name: Install sublimemerge
       win_chocolatey:
         name: sublimemerge
         state: present
+      ignore_errors: yes
 
     - name: Install launchy
       win_chocolatey:
         name: launchy
         state: present
+      ignore_errors: yes
 
     - name: Install astrogrep
       win_chocolatey:
         name: astrogrep
         state: present
+      ignore_errors: yes
         
     - name: Install joplin
       win_chocolatey:
         name: joplin
         state: present
+      ignore_errors: yes
 
     - name: Install dropbox
       win_chocolatey:
         name: dropbox
         state: present
+      ignore_errors: yes
         
     - name: Install cherrytree
       win_chocolatey:
         name: cherrytree
         state: present
+      ignore_errors: yes
 
     - name: Install glogg
       win_chocolatey:
         name: glogg
         state: present
+      ignore_errors: yes
 
     - name: Install fiddler
       win_chocolatey:
         name: fiddler
         state: present
+      ignore_errors: yes
 
     - name: Install postman
       win_chocolatey:
         name: postman
         state: present
+      ignore_errors: yes
 
     - name: Install pdfsam
       win_chocolatey:
         name: pdfsam
         state: present
+      ignore_errors: yes
         
     - name: Install greenshot
       win_chocolatey:
         name: greenshot
         state: present
+      ignore_errors: yes
         
     - name: Install zoomit
       win_chocolatey:
         name: zoomit
         state: present
+      ignore_errors: yes
         
     - name: Install keepass
       win_chocolatey:
         name: keepass
         state: present
+      ignore_errors: yes
 
     - name: Install networkmonitor
       win_chocolatey:
         name: networkmonitor
         state: present
+      ignore_errors: yes

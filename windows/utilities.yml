@@ -17,42 +17,50 @@
       win_chocolatey:
         name: 7zip.install
         state: present
+      ignore_errors: yes
         
     - name: Install jq
       win_chocolatey:
         name: jq
         state: present
+      ignore_errors: yes
         
     - name: Install curl
       win_chocolatey:
         name: curl
         state: present
+      ignore_errors: yes
         
     - name: Install bind-tools, dig
       win_chocolatey:
         name: bind-toolsonly
         state: present
+      ignore_errors: yes
         
     - name: Install git
       win_chocolatey:
         name: git
         state: present
+      ignore_errors: yes
 
     - name: Install vifm
       win_chocolatey:
         name: git
         state: present
+      ignore_errors: yes
         
     - name: Install ripgrep
       win_chocolatey:
         name: ripgrep
         state: present
+      ignore_errors: yes
 
     - name: Install sysinternals
       win_chocolatey:
         name: sysinternals
         state: present
         params: '/InstallDir:C:\Tools\sysinternals'
+      ignore_errors: yes
 
     - name: Ensure that sysinternals is in path
       win_path:
@@ -61,4 +69,5 @@
 
     - name: Install rimraf
       win_command: npm install rimraf -g
+      ignore_errors: yes
         
