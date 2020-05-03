@@ -13,6 +13,11 @@
       apt_repository:
         repo: ppa:otto-kesselgulasch/gimp        
 
+    - name: "Add peek ppa"
+      become: yes
+      apt_repository:
+        repo: ppa:peek-developers/stable
+
     - name: "Install various dekstop tools"
       become: yes
       apt: name= {{ item }} update_cache=yes state=latest
@@ -35,6 +40,8 @@
         - meld
         # glogg  log viewer
         - glogg
+        # peek gif recorder
+        - peek
         
     - name: Install vscode
       become: yes
