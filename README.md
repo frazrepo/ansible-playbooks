@@ -28,12 +28,13 @@ ansible-playbook -i linux-inventory.txt linux/utilities.yml
 ansible-playbook --connection=local -i 127.0.0.1, hello.yml
 ```
 # Tools list
+
 ## Windows
 - Chocolatey
 - Common : nodejs, python, go
 - Desktop:     
     - Editors : notepad++, vscode, sublimetext3, sublimemerge
-    - Desktop : launchy, greenshot
+    - Desktop : launchy, greenshot, zoomit
     - Notes   : joplin, dropbox, cherrytree, keepass
     - File    : astropgrep,  glogg
     - Network : fiddler, postman, networkmonitor

@@ -73,6 +73,11 @@
         name: greenshot
         state: present
         
+    - name: Install zoomit
+      win_chocolatey:
+        name: zoomit
+        state: present
+        
     - name: Install keepass
       win_chocolatey:
         name: keepass
