@@ -20,3 +20,7 @@
 
 # from GitHub
 # - src: https://github.com/frazrepo/ansible-role-vim
+
+# terraform role ansible-galaxy
+# https://github.com/migibert/terraform-role
+- name: migibert.terraform

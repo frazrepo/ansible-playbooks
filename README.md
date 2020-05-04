@@ -4,6 +4,11 @@ Ansible playbooks for windows and linux environment
 
 # Usage
 
+## Install requirements
+```
+ansible-galaxy install -r requirements.yml
+```
+
 ## Linux host or WSL to install on Windows
 
 Install a specific playbook
