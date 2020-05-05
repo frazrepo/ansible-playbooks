@@ -91,6 +91,7 @@
         
     - name: "Install appimage launcher"
       become: yes
+      apt: name=appimagelauncher update_cache=yes state=latest
       ignore_errors: yes
 
     - name: Install vscode
