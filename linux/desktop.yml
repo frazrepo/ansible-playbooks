@@ -9,6 +9,12 @@
         repo: ppa:ubuntuhandbook1/darktable
       ignore_errors: yes
 
+    - name: "App appimage launcher"
+      become: yes
+      apt_repository:
+        repo: ppa:appimagelauncher-team/stable
+      ignore_errors: yes
+
     - name: "Add gimp ppa"
       become: yes
       apt_repository:
@@ -46,6 +52,10 @@
         # peek gif recorder
         - peek
         
+    - name: "Install appimage launcher"
+      become: yes
+      apt: name=appimagelauncher update_cache=yes state=latest
+
     - name: Install vscode
       become: yes
       import_role:
