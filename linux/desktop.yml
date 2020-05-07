@@ -9,12 +9,6 @@
         repo: ppa:ubuntuhandbook1/darktable
       ignore_errors: yes
 
-    - name: "Add cherrytree ppa"
-      become: yes
-      apt_repository:
-        repo: ppa:giuspen/ppa
-      ignore_errors: yes
-
     - name: "App appimage launcher"
       become: yes
       apt_repository:
@@ -41,7 +35,9 @@
 
     - name: "Install cherrytree note taking"
       become: yes
-      apt: name=cherrytree update_cache=yes state=latest
+      snap:
+        name:
+          - cherrytree
       ignore_errors: yes
 
     - name: "Install shutter screenshot tool"
