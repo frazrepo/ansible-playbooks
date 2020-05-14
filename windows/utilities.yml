@@ -25,6 +25,12 @@
         state: present
       ignore_errors: yes
         
+    - name: Install yq
+      win_chocolatey:
+        name: yq
+        state: present
+      ignore_errors: yes
+        
     - name: Install curl
       win_chocolatey:
         name: curl
