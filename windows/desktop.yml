@@ -27,9 +27,9 @@
         state: present
       ignore_errors: yes
 
-    - name: Install launchy
+    - name: Install keypirinha
       win_chocolatey:
-        name: launchy
+        name: keypirinha
         state: present
       ignore_errors: yes
 
