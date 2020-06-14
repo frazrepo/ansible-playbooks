@@ -52,7 +52,7 @@ ansible-playbook --connection=local -i 127.0.0.1, hello.yml
 - Desktop : 
     - Images   : darktable, gimp, peek
     - Notes    : cherrytree, 
-    - Desktop  : shutter, plank, synapse
+    - Desktop  : shutter, plank, ulauncher
     - Audio    : audacious
     - Code     : vscode 
     - Log file : glogg

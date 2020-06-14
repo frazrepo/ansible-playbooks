@@ -50,9 +50,10 @@
       apt: name=audacious update_cache=yes state=latest
       ignore_errors: yes
 
-    - name: "Install synapse launcher"
+    - name: "Install ulauncher launcher"
       become: yes
-      apt: name=synapse update_cache=yes state=latest
+      apt:
+        deb: https://github.com/Ulauncher/Ulauncher/releases/download/5.7.5/ulauncher_5.7.5_all.deb
       ignore_errors: yes
 
     - name: "Install plank dock"
