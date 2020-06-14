@@ -59,9 +59,22 @@
       when: not go_result is failed
       ignore_errors: yes
 
+    - stat:
+        path: /usr/local/bin/k9s
+      register: k9s_file  
+
+    - name: "Download k9s archive file"
+      unarchive:
+          src: https://github.com/derailed/k9s/releases/download/v0.20.5/k9s_Linux_x86_64.tar.gz
+          dest: /tmp
+          remote_src: yes
+      when: k9s_file.stat.exists == false
+      ignore_errors: yes
+
     - name: "Install k9s"
-      shell: go get -u github.com/derailed/k9s
-      environment:
-        GOPATH: "{{ go_path }}"
-      when: not go_result is failed
+      copy:
+        src: "/tmp/k9s"
+        dest: "/usr/local/bin/k9s"
+        remote_src: yes
+      when: k9s_file.stat.exists == false
       ignore_errors: yes
