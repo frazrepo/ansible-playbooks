@@ -61,12 +61,12 @@
       apt: name=plank update_cache=yes state=latest
       ignore_errors: yes
 
-    - name: "Install darktable"
+    - name: "Install darktable - raw image editor"
       become: yes
       apt: name=darktable update_cache=yes state=latest
       ignore_errors: yes
 
-    - name: "Install gimp"
+    - name: "Install gimp - image editor"
       become: yes
       apt: name=gimp update_cache=yes state=latest
       ignore_errors: yes
@@ -81,7 +81,7 @@
       apt: name=glogg update_cache=yes state=latest
       ignore_errors: yes
 
-    - name: "Install peek"
+    - name: "Install peek - gif recorder"
       become: yes
       apt: name=peek update_cache=yes state=latest
       ignore_errors: yes
@@ -91,7 +91,7 @@
       apt: name=appimagelauncher update_cache=yes state=latest
       ignore_errors: yes
 
-    - name: Install vscode
+    - name: "Install vscode - code editor"
       become: yes
       import_role:
         name: gantsign.visual-studio-code
