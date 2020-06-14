@@ -3,10 +3,6 @@
   hosts: all
   
   tasks:
-    - name: "Install various container tools"
-      debug:
-        msg : Todo kubectx, kubens
-
     - name: Install docker
       become: yes
       import_role:
@@ -58,6 +54,13 @@
 
     - name: "Install lazydocker"
       shell: go get -u github.com/jesseduffield/lazydocker
+      environment:
+        GOPATH: "{{ go_path }}"
+      when: not go_result is failed
+      ignore_errors: yes
+
+    - name: "Install k9s"
+      shell: go get -u github.com/derailed/k9s
       environment:
         GOPATH: "{{ go_path }}"
       when: not go_result is failed

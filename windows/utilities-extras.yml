@@ -4,14 +4,20 @@
   
   tasks:
 
-    - name: Install windirstat
+    - name: Install windirstat - Disk Usage analyzer
       win_chocolatey:
         name: windirstat
         state: present
       ignore_errors: yes
 
-    - name: Install filezilla
+    - name: Install filezilla - ftp client
       win_chocolatey:
         name: filezilla
+        state: present
+      ignore_errors: yes
+
+    - name: Install wiztree -  Disk Space analyzer ++
+      win_chocolatey:
+        name: wiztree
         state: present
       ignore_errors: yes

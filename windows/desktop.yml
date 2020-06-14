@@ -3,97 +3,91 @@
   hosts: all
   
   tasks:
-    - name: Install vscode
+    - name: Install vscode - IDE
       win_chocolatey:
         name: vscode
         state: present
       ignore_errors: yes
 
-    - name: Install notepadplusplus
+    - name: Install notepadplusplus - Text Editor
       win_chocolatey:
         name: notepadplusplus
         state: present
       ignore_errors: yes
 
-    - name: Install sublimetext3
+    - name: Install sublimetext3 - Text editor
       win_chocolatey:
         name: sublimetext3
         state: present
       ignore_errors: yes
 
-    - name: Install sublimemerge
-      win_chocolatey:
-        name: sublimemerge
-        state: present
-      ignore_errors: yes
-
-    - name: Install keypirinha
+    - name: Install keypirinha - app launcher
       win_chocolatey:
         name: keypirinha
         state: present
       ignore_errors: yes
 
-    - name: Install astrogrep
+    - name: Install astrogrep - Search text in files
       win_chocolatey:
         name: astrogrep
         state: present
       ignore_errors: yes
         
-    - name: Install joplin
+    - name: Install joplin - Note taker
       win_chocolatey:
         name: joplin
         state: present
       ignore_errors: yes
 
-    - name: Install dropbox
+    - name: Install dropbox - cloud storage
       win_chocolatey:
         name: dropbox
         state: present
       ignore_errors: yes
         
-    - name: Install cherrytree
+    - name: Install cherrytree - Note taker
       win_chocolatey:
         name: cherrytree
         state: present
       ignore_errors: yes
 
-    - name: Install glogg
+    - name: Install glogg - log viewer
       win_chocolatey:
         name: glogg
         state: present
       ignore_errors: yes
 
-    - name: Install fiddler
+    - name: Install fiddler - http proxy
       win_chocolatey:
         name: fiddler
         state: present
       ignore_errors: yes
 
-    - name: Install postman
+    - name: Install postman - http tools
       win_chocolatey:
         name: postman
         state: present
       ignore_errors: yes
 
-    - name: Install pdfsam
+    - name: Install pdfsam - pdf merger/splitter
       win_chocolatey:
         name: pdfsam
         state: present
       ignore_errors: yes
         
-    - name: Install greenshot
+    - name: Install greenshot - Screen capture
       win_chocolatey:
         name: greenshot
         state: present
       ignore_errors: yes
         
-    - name: Install zoomit
+    - name: Install zoomit - Gif recorder
       win_chocolatey:
         name: zoomit
         state: present
       ignore_errors: yes
         
-    - name: Install keepass
+    - name: Install keepass - Password Manager
       win_chocolatey:
         name: keepass
         state: present
@@ -102,5 +96,12 @@
     - name: Install networkmonitor
       win_chocolatey:
         name: networkmonitor
+        state: present
+      ignore_errors: yes
+
+    - name: Install ditto - clipboard manager
+      win_chocolatey:
+        name: ditto
+        params: --pre
         state: present
       ignore_errors: yes

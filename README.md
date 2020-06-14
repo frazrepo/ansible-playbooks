@@ -38,13 +38,13 @@ ansible-playbook --connection=local -i 127.0.0.1, hello.yml
 - Chocolatey
 - Common : nodejs, python, go
 - Desktop:     
-    - Editors : notepad++, vscode, sublimetext3, sublimemerge
-    - Desktop : launchy, greenshot, zoomit
+    - Editors : notepad++, vscode, sublimetext3
+    - Desktop : greenshot, zoomit, keypirinha
     - Notes   : joplin, dropbox, cherrytree, keepass
     - File    : astropgrep,  glogg
     - Network : fiddler, postman, networkmonitor
 - Utilities : 7-zip, jq, curl, dig, git, vifm, sysinternals, rimraf
-- Extras : windirstat, filezilla
+- Extras : windirstat, filezilla, wiztree
 
 ## Linux
 - Common : nodejs, python, go
@@ -58,5 +58,5 @@ ansible-playbook --connection=local -i 127.0.0.1, hello.yml
 - Utilities : rename, jq, ncdu, git, cloc, lnav, tmux, agrind, gron, gotop, lazygit
 - Vim with vimrc files
 - VM : VirtualBox
-- DevOps : docker, kubectl, kubens, kubectx, lazydocker 
+- DevOps : docker, kubectl, kubens, kubectx, lazydocker , k9s
 
