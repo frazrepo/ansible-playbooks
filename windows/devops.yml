@@ -14,3 +14,15 @@
         name: kubernetes-cli
         state: present
       ignore_errors: yes
+
+    - name: Install lazydocker
+      win_chocolatey:
+        name: lazydocker
+        state: present
+      ignore_errors: yes
+
+    - name: Install k9s
+      win_chocolatey:
+        name: k9s
+        state: present
+      ignore_errors: yes

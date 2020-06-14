@@ -43,8 +43,9 @@ ansible-playbook --connection=local -i 127.0.0.1, hello.yml
     - Notes   : joplin, dropbox, cherrytree, keepass
     - File    : astropgrep,  glogg
     - Network : fiddler, postman, networkmonitor
-- Utilities : 7-zip, jq, curl, dig, git, vifm, sysinternals, rimraf
+- Utilities : 7-zip, jq, curl, dig, git,lazygit, vifm, sysinternals, rimraf
 - Extras : windirstat, filezilla, wiztree
+- Docker/Kubernetes: kubectl, k9s, lazydocker
 
 ## Linux
 - Common : nodejs, python, go
