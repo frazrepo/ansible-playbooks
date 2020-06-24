@@ -1,0 +1,18 @@
+---
+- name: "Install files utilities"
+  hosts: all
+  
+  tasks:
+
+    - name: Install Syncthing
+      win_chocolatey:
+        name: syncthing
+        state: present
+      ignore_errors: yes
+
+    - name: Install SyncTrayzor Tray Utility for Syncthing
+      win_chocolatey:
+        name: synctrayzor
+        state: present
+      ignore_errors: yes
+ 
