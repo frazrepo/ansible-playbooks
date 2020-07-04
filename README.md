@@ -9,14 +9,18 @@ Ansible playbooks for windows and linux environment
 ansible-galaxy install -r requirements.yml
 ```
 
-## Linux host or WSL to install on Windows
+## Deploy on Windows from WSL or Linux
 
+Install all playbooks with
+```
+$ ./windows-install.sh
+```
 Install a specific playbook
 ```
-ansible-playbook -i windows-inventory.txt ping.yml
+ansible-playbook -i hosts.ini -l windows windows/desktop.yml
 ```
 
-## Linux host to install on Linux
+## Deploy on Linux 
 
 Install all playbooks with
 ```
@@ -25,13 +29,22 @@ $ ./linux-install.sh
 
 Install a specific playbook group
 ```
-ansible-playbook -i linux-inventory.txt linux/utilities.yml
+ansible-playbook -i hosts.ini -l linux linux/utilities.yml
 ```
+
+## Deploy on WSL 
+
+Install a specific playbook
+```
+ansible-playbook -i hosts.ini -l wsl linux/utilities.yml
+```
+
 # How to debug locally
 
 ```
 ansible-playbook --connection=local -i 127.0.0.1, hello.yml
 ```
+
 # Tools list
 
 ## Windows

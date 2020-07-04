@@ -4,4 +4,4 @@
 ansible-galaxy install -r requirements.yml
 
 # Run playbook
-ansible-playbook linux-tools.yml -i linux.hosts
+ansible-playbook -i hosts.ini linux-tools.yml

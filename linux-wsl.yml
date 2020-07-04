@@ -1,5 +1,5 @@
 - name : Install all linux tools
-  hosts: all
+  hosts: wsl
 
 # Common: nodejs, go, python
 - import_playbook: linux/common.yml

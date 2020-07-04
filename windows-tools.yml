@@ -1,5 +1,5 @@
 - name : Install all Windows tools
-  hosts: all
+  hosts: windows
 
 # Common
 - import_playbook: windows/chocolatey.yml

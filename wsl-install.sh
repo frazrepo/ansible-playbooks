@@ -4,4 +4,4 @@
 ansible-galaxy install -r requirements.yml
 
 # Run playbook
-ansible-playbook linux-wsl.yml -i linux-inventory.txt
+ansible-playbook -i hosts.ini linux-wsl.yml
