@@ -31,6 +31,7 @@
       win_chocolatey:
         name: astrogrep
         state: present
+        version: "{{ astrogrep_version }}"
       ignore_errors: yes
         
     - name: Install joplin - Note taker
@@ -91,6 +92,7 @@
       win_chocolatey:
         name: keepass
         state: present
+        version: "{{ keepass_version }}"
       ignore_errors: yes
 
     - name: Install networkmonitor
