@@ -69,6 +69,10 @@
     - set_fact:
         go_path: "{{ lookup('env', 'GOPATH') | default(ansible_env.HOME+'/go', true) }}"
       when: not go_result is failed
+      tags:
+          - gron
+          - gotop
+          - lazygit
 
     - name: "Install gron - json grep"
       shell: go get -u github.com/tomnomnom/gron
