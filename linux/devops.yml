@@ -8,10 +8,12 @@
       import_role:
         name: geerlingguy.docker
       ignore_errors: yes
+      tags: docker 
 
     - stat:
         path: /usr/local/bin/kubectl
       register: kubectl_file  
+      tags: kubectl
 
     - name: Install kubectl
       become: yes
@@ -21,16 +23,19 @@
         sudo mv ./kubectl /usr/local/bin/kubectl
       when: kubectl_file.stat.exists == false
       ignore_errors: yes
+      tags: kubectl
 
     - stat:
         path: /usr/local/bin/kubectx
       register: kubectx_file  
+      tags: kubectl
 
     - name: Download kubectx, kubectl
       become: yes
       git: repo=https://github.com/ahmetb/kubectx dest=/opt/kubectx version=master
       ignore_errors: yes
       when: kubectx_file.stat.exists == false
+      tags: kubectl
 
     - name: Install kubectx and kubens
       become: yes
@@ -39,6 +44,7 @@
         sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
       when: kubectx_file.stat.exists == false
       ignore_errors: yes
+      tags: kubectl
 
     # Go utilities
     - name: check go version
@@ -46,10 +52,12 @@
       register: go_result
       changed_when: no
       ignore_errors: true
+      tags: lazydocker
 
     - set_fact:
         go_path: "{{ lookup('env', 'GOPATH') | default(ansible_env.HOME+'/go', true) }}"
       when: not go_result is failed
+      tags: lazydocker
 
 
     - name: "Install lazydocker"
@@ -58,10 +66,12 @@
         GOPATH: "{{ go_path }}"
       when: not go_result is failed
       ignore_errors: yes
+      tags: lazydocker
 
     - stat:
         path: /usr/local/bin/k9s
       register: k9s_file  
+      tags: k9s
 
     - name: "Download k9s archive file"
       unarchive:
@@ -70,6 +80,7 @@
           remote_src: yes
       when: k9s_file.stat.exists == false
       ignore_errors: yes
+      tags: k9s
 
     - name: "Install k9s"
       copy:
@@ -78,3 +89,4 @@
         remote_src: yes
       when: k9s_file.stat.exists == false
       ignore_errors: yes
+      tags: k9s

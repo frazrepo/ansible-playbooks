@@ -8,30 +8,35 @@
       apt_repository:
         repo: ppa:ubuntuhandbook1/darktable
       ignore_errors: yes
+      tags: darktable
 
     - name: "App appimage launcher"
       become: yes
       apt_repository:
         repo: ppa:appimagelauncher-team/stable
       ignore_errors: yes
+      tags: appimagelauncher
 
     - name: "Add gimp ppa"
       become: yes
       apt_repository:
         repo: ppa:otto-kesselgulasch/gimp        
       ignore_errors: yes
+      tags: gimp
 
     - name: "Add peek ppa"
       become: yes
       apt_repository:
         repo: ppa:peek-developers/stable
       ignore_errors: yes
+      tags: peek
 
     - name: "Add shutter ppa"
       become: yes
       apt_repository:
         repo: ppa:linuxuprising/shutter
       ignore_errors: yes
+      tags: shutter
 
     - name: "Install cherrytree note taking"
       become: yes
@@ -39,60 +44,72 @@
         name:
           - cherrytree
       ignore_errors: yes
+      tags: cherrytree
 
     - name: "Install shutter screenshot tool"
       become: yes
       apt: name=shutter update_cache=yes state=latest
       ignore_errors: yes
+      tags: shutter
 
     - name: "Install audacious audio player"
       become: yes
       apt: name=audacious update_cache=yes state=latest
       ignore_errors: yes
+      tags: audacious
 
     - name: "Install ulauncher launcher"
       become: yes
       apt:
         deb: https://github.com/Ulauncher/Ulauncher/releases/download/5.7.5/ulauncher_5.7.5_all.deb
       ignore_errors: yes
+      tags: ulauncher
 
     - name: "Install plank dock"
       become: yes
       apt: name=plank update_cache=yes state=latest
       ignore_errors: yes
+      tags: plank
 
     - name: "Install darktable - raw image editor"
       become: yes
       apt: name=darktable update_cache=yes state=latest
       ignore_errors: yes
+      tags: darktable
 
     - name: "Install gimp - image editor"
       become: yes
       apt: name=gimp update_cache=yes state=latest
       ignore_errors: yes
+      tags: gimp
 
     - name: "Install meld file comparator"
       become: yes
       apt: name=meld update_cache=yes state=latest
       ignore_errors: yes
+      tags: meld
 
     - name: "Install glogg log viewer"
       become: yes
       apt: name=glogg update_cache=yes state=latest
       ignore_errors: yes
+      tags: glogg
 
     - name: "Install peek - gif recorder"
       become: yes
       apt: name=peek update_cache=yes state=latest
       ignore_errors: yes
+      tags: peek
         
     - name: "Install appimage launcher"
       become: yes
       apt: name=appimagelauncher update_cache=yes state=latest
       ignore_errors: yes
+      tags: appimagelauncher
 
     - name: "Install vscode - code editor"
       become: yes
       import_role:
         name: gantsign.visual-studio-code
       ignore_errors: yes
+      tags: vscode

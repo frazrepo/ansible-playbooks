@@ -8,24 +8,28 @@
         name: vscode
         state: present
       ignore_errors: yes
+      tags: vscode
 
     - name: Install notepadplusplus - Text Editor
       win_chocolatey:
         name: notepadplusplus
         state: present
       ignore_errors: yes
+      tags: notepadplusplus
 
     - name: Install sublimetext3 - Text editor
       win_chocolatey:
         name: sublimetext3
         state: present
       ignore_errors: yes
+      tags: sublimetext3
 
     - name: Install keypirinha - app launcher
       win_chocolatey:
         name: keypirinha
         state: present
       ignore_errors: yes
+      tags: keypirinha
 
     - name: Install astrogrep - Search text in files
       win_chocolatey:
@@ -33,60 +37,70 @@
         state: present
         version: "{{ astrogrep_version }}"
       ignore_errors: yes
+      tags: astrogrep
         
     - name: Install joplin - Note taker
       win_chocolatey:
         name: joplin
         state: present
       ignore_errors: yes
+      tags: joplin
 
     - name: Install dropbox - cloud storage
       win_chocolatey:
         name: dropbox
         state: present
       ignore_errors: yes
+      tags: dropbox
         
     - name: Install cherrytree - Note taker
       win_chocolatey:
         name: cherrytree
         state: present
       ignore_errors: yes
+      tags: cherrytree
 
     - name: Install glogg - log viewer
       win_chocolatey:
         name: glogg
         state: present
       ignore_errors: yes
+      tags: glogg
 
     - name: Install fiddler - http proxy
       win_chocolatey:
         name: fiddler
         state: present
       ignore_errors: yes
+      tags: fiddler
 
     - name: Install postman - http tools
       win_chocolatey:
         name: postman
         state: present
       ignore_errors: yes
+      tags: postman
 
     - name: Install pdfsam - pdf merger/splitter
       win_chocolatey:
         name: pdfsam
         state: present
       ignore_errors: yes
+      tags: pdfsam
         
     - name: Install greenshot - Screen capture
       win_chocolatey:
         name: greenshot
         state: present
       ignore_errors: yes
+      tags: greenshot
         
     - name: Install zoomit - Gif recorder
       win_chocolatey:
         name: zoomit
         state: present
       ignore_errors: yes
+      tags: zoomit
         
     - name: Install keepass - Password Manager
       win_chocolatey:
@@ -94,12 +108,14 @@
         state: present
         version: "{{ keepass_version }}"
       ignore_errors: yes
+      tags: keepass
 
     - name: Install networkmonitor
       win_chocolatey:
         name: networkmonitor
         state: present
       ignore_errors: yes
+      tags: networkmonitor
 
     - name: Install ditto - clipboard manager
       win_chocolatey:
@@ -107,3 +123,4 @@
         params: --pre
         state: present
       ignore_errors: yes
+      tags: ditto

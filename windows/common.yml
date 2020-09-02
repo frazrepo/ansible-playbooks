@@ -8,15 +8,19 @@
         name: nodejs-lts
         state: present
       ignore_errors: yes
+      tags: nodejs
+
 
     - name: Install python
       win_chocolatey:
         name: python
         state: present
       ignore_errors: yes
+      tags: python
 
     - name: Install go
       win_chocolatey:
         name: go
         state: present
       ignore_errors: yes
+      tags: go

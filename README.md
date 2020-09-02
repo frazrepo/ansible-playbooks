@@ -19,6 +19,10 @@ Install a specific playbook
 ```
 ansible-playbook -i hosts.ini -l windows windows/desktop.yml
 ```
+Install a specific tool inside a playbook
+```
+ansible-playbook -i hosts.ini -l windows windows/desktop.yml --tags astrogrep
+```
 
 ## Deploy on Linux 
 

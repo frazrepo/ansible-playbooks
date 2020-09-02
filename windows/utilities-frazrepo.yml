@@ -9,17 +9,20 @@
         name: youtube-dl
         state: present
       ignore_errors: yes
+      tags: youtubedl
 
     - name: Install ffmpeg
       win_chocolatey:
         name: ffmpeg
         state: present
       ignore_errors: yes
+      tags: ffmpeg
 
     - name: Check if sanitizeme is installed
       win_stat:
         path: C:\Tools\sanitizeme.exe
       register: sanitize_file
+      tags: sanitizeme
 
     - name: Install sanitizeme
       win_get_url:
@@ -27,12 +30,14 @@
           dest: C:\Tools\sanitizeme.exe 
       when: sanitize_file.stat.exists == false
       ignore_errors: yes
+      tags: sanitizeme
         
     - name: Check if ga2v is installed
       win_stat:
         path: C:\Tools\ga2v.exe
       register: ga2v_file
       ignore_errors: yes
+      tags: ga2v
 
     - name: Install ga2v
       win_get_url:
@@ -40,4 +45,5 @@
           dest: C:\Tools\ga2v.exe
       when: ga2v_file.stat.exists == false
       ignore_errors: yes
+      tags: ga2v
         

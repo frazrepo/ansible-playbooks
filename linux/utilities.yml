@@ -3,33 +3,57 @@
   hosts: all
   
   tasks:
-    - name: "Install rename, jq, ncdu, git, cloc, lnav "
+    - name: "Install jq"
       become: yes
-      apt: name= {{ item }} update_cache=yes state=latest
-      with_items:
-        # renaming multiple files
-        - rename
-        # json manipulation
-        - jq
-        # disk usage
-        - ncdu
-        # git
-        - git
-        # cloc: count lines of code
-        - cloc
-        # lnav log
-        - lnav
-        # tmux
-        - tmux
+      apt: name=jq update_cache=yes state=latest
       ignore_errors: yes
+      tags: jq
+
+    - name: "Install ncdu"
+      become: yes
+      apt: name=ncdu update_cache=yes state=latest
+      ignore_errors: yes
+      tags: ncdu
+
+    - name: "Install rename"
+      become: yes
+      apt: name=rename update_cache=yes state=latest
+      ignore_errors: yes
+      tags: rename
+
+    - name: "Install git"
+      become: yes
+      apt: name=git update_cache=yes state=latest
+      ignore_errors: yes
+      tags: git
+
+    - name: "Install cloc"
+      become: yes
+      apt: name=cloc update_cache=yes state=latest
+      ignore_errors: yes
+      tags: cloc
+
+    - name: "Install lnav"
+      become: yes
+      apt: name=lnav update_cache=yes state=latest
+      ignore_errors: yes
+      tags: lnav
+
+    - name: "Install tmux"
+      become: yes
+      apt: name=tmux update_cache=yes state=latest
+      ignore_errors: yes
+      tags: tmux
         
     - stat:
         path: /usr/local/bin/agrind
       register: agrind_file  
+      tags: agrind
 
     - name: "Install angle grinder"
       shell: curl -L https://github.com/rcoh/angle-grinder/releases/download/v0.12.0/angle_grinder-v0.12.0-x86_64-unknown-linux-musl.tar.gz  | tar Ozxf -  | sudo tee /usr/local/bin/agrind > /dev/null && sudo chmod +x /usr/local/bin/agrind
       when: agrind_file.stat.exists == false
+      tags: agrind
 
     # Go utilities
     - name: check go version
@@ -37,6 +61,10 @@
       register: go_result
       changed_when: no
       ignore_errors: true
+      tags:
+          - gron
+          - gotop
+          - lazygit
 
     - set_fact:
         go_path: "{{ lookup('env', 'GOPATH') | default(ansible_env.HOME+'/go', true) }}"
@@ -48,8 +76,10 @@
         GOPATH: "{{ go_path }}"
       register: gron
       when: not go_result is failed
+      tags: gron
 
     - debug: var=gron
+      tags: gron
 
     - name: "Install gotop"
       shell: go get -u go get github.com/cjbassi/gotop
@@ -57,11 +87,14 @@
         GOPATH: "{{ go_path }}"
       register: gotop
       when: not go_result is failed
+      tags: gotop
     
     - debug: var=gotop
+      tags: gotop
     
     - name: "Install lazygit"
       shell: go get -u github.com/jesseduffield/lazygit
       environment:
         GOPATH: "{{ go_path }}"
       when: not go_result is failed
+      tags: lazygit

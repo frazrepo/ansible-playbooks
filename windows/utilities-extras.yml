@@ -9,15 +9,18 @@
         name: windirstat
         state: present
       ignore_errors: yes
+      tags: windirstat
 
     - name: Install filezilla - ftp client
       win_chocolatey:
         name: filezilla
         state: present
       ignore_errors: yes
+      tags: filezilla
 
     - name: Install wiztree -  Disk Space analyzer ++
       win_chocolatey:
         name: wiztree
         state: present
       ignore_errors: yes
+      tags: wiztree

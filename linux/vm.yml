@@ -12,6 +12,7 @@
     - name: "Install various vm tools"
       debug:
         msg : Todo  multipass
+      tags: multipass
 
     - name: Add VirtualBox repo keys
       apt_key:
@@ -20,25 +21,30 @@
       with_items:
         - oracle_vbox
         - oracle_vbox_2016
+      tags: virtualbox
 
     - name: Add VirtualBox repo
       apt_repository:
         repo: 'deb {{ virtualbox_repo_base_url }}/debian {{ ansible_distribution_release }} contrib'
         state: present
         update_cache: yes
+      tags: virtualbox
 
     - name: "Install virtualbox in version {{ virtualbox_version }}"
       apt:
         name: virtualbox-{{ virtualbox_version }}
         state: present
+      tags: virtualbox
 
     - name: Check if extension pack is already installed
       shell: "VBoxManage list extpacks"
       register: extpack_list
+      tags: virtualbox
 
     - name: Output installed extpacks
       debug:
         var: download_result.stdtout
+      tags: virtualbox
 
     - name: Download VirtualBox extension pack
       get_url:
@@ -47,12 +53,15 @@
         force: yes
       register: download_result
       when: 'extpack_list.stdout == "Extension Packs: 0"'
+      tags: virtualbox
 
     - name: Output downloaded VirtualBox extension pack file name
       debug:
         var: download_result.dest
         verbosity: 1
+      tags: virtualbox
 
     - name: Install VirtualBox extension pack
       shell: "echo 'y' | VBoxManage extpack install --replace {{ download_result.dest }}"
       when: 'extpack_list.stdout == "Extension Packs: 0"'
+      tags: virtualbox

@@ -18,54 +18,64 @@
         name: 7zip.install
         state: present
       ignore_errors: yes
+      tags: 7zip
         
     - name: Install jq
       win_chocolatey:
         name: jq
         state: present
       ignore_errors: yes
+      tags: jq
         
     - name: Install yq
       win_chocolatey:
         name: yq
         state: present
       ignore_errors: yes
+      tags: yq
         
     - name: Install curl
       win_chocolatey:
         name: curl
         state: present
       ignore_errors: yes
+      tags: curl
         
     - name: Install bind-tools, dig
       win_chocolatey:
         name: bind-toolsonly
         state: present
       ignore_errors: yes
+      tags: bindtools
         
     - name: Install git
       win_chocolatey:
         name: git
         state: present
       ignore_errors: yes
+      tags: git
 
     - name: Install lazygit
       win_chocolatey:
         name: lazygit
         state: present
       ignore_errors: yes
+      tags: lazygit
 
     - name: Install vifm - terminal file manager
       win_chocolatey:
-        name: git
+        name: vifm
         state: present
       ignore_errors: yes
+      tags: vifm
+
         
     - name: Install ripgrep
       win_chocolatey:
         name: ripgrep
         state: present
       ignore_errors: yes
+      tags: ripgrep
 
     - name: Install sysinternals
       win_chocolatey:
@@ -73,13 +83,16 @@
         state: present
         params: '/InstallDir:C:\Tools\sysinternals'
       ignore_errors: yes
+      tags: sysinternals
 
     - name: Ensure that sysinternals is in path
       win_path:
         elements:
         - 'C:\Tools\sysinternals'
+      tags: sysinternals
 
     - name: Install rimraf - fast directory remover
       win_command: npm install rimraf -g
       ignore_errors: yes
+      tags: rimraf
         
