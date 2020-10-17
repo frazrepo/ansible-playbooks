@@ -34,6 +34,7 @@ $ ./linux-install.sh
 Install a specific playbook group
 ```
 ansible-playbook -i hosts.ini -l linux linux/utilities.yml
+ansible-playbook -i hosts.ini -l linux linux/devops.yml --tags k9s
 ```
 
 ## Deploy on WSL 

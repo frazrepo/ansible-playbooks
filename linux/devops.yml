@@ -90,3 +90,17 @@
       when: k9s_file.stat.exists == false
       ignore_errors: yes
       tags: k9s
+
+    - stat:
+        path: /usr/local/bin/stern
+      register: stern_file  
+      tags: stern
+
+    - name: "Download and install stern"
+      shell: | 
+        curl -LO https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
+        chmod +x ./stern_linux_amd64
+        sudo mv ./stern_linux_amd64 /usr/local/bin/stern
+      when: stern_file.stat.exists == false
+      ignore_errors: yes
+      tags: stern
