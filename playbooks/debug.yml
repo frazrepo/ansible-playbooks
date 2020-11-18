@@ -1,0 +1,7 @@
+---
+- name: "Install utilities"
+  hosts: all
+  
+  tasks:
+    - debug : 
+        var:  ansible_os_family

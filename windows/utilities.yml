@@ -97,8 +97,7 @@
       tags: rimraf
         
     - name: Install EveryThing - Fast File Search
-      win_chocolatey:
+      import_role:
         name: everything
-        state: present
       ignore_errors: yes
       tags: everything

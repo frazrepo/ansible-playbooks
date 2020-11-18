@@ -1,6 +1,6 @@
 ---
-- name: Install EveryThing - Fast Files and Folders Search
+- name: Install Wiztree
   win_chocolatey:
-    name: everything
+    name: wiztree
     state: present
   when: ansible_os_family == "Windows"

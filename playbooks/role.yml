@@ -1,0 +1,9 @@
+---
+- name: "Install utilities"
+  hosts: all
+  
+  tasks:
+    - name: Install "{{ role }}"
+      import_role:
+        name:  "{{ role }}"
+      ignore_errors: yes
