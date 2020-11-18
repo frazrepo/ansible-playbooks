@@ -1,0 +1,5 @@
+---
+- name: Install EveryThing - Fast Files and Folders Search
+  win_chocolatey:
+    name: everything
+    state: present
