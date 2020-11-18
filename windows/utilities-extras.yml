@@ -19,8 +19,7 @@
       tags: filezilla
 
     - name: Install wiztree -  Disk Space analyzer ++
-      win_chocolatey:
+      import_role:
         name: wiztree
-        state: present
       ignore_errors: yes
       tags: wiztree

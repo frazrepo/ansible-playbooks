@@ -44,10 +44,21 @@ Install a specific playbook
 ansible-playbook -i hosts.ini -l wsl linux/utilities.yml
 ```
 
+# Usage using role
+
+Install a specific role
+```
+ansible-playbook -i hosts.ini playbooks/role.yml -e role=rolename
+```
+
 # How to debug locally
 
 ```
+# Hello ping
 ansible-playbook --connection=local -i 127.0.0.1, hello.yml
+
+# Debug variables
+ansible-playbook -i hosts.ini playbooks/debug.yml
 ```
 
 # Tools list
