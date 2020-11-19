@@ -1,0 +1,6 @@
+---
+- name: Install k9s
+  win_chocolatey:
+    name: k9s
+    state: present
+  when: ansible_os_family == "Windows"

@@ -1,0 +1,6 @@
+---
+- name: Install terraform
+  win_chocolatey:
+    name: terraform
+    state: present
+  when: ansible_os_family == "Windows"

@@ -1,0 +1,6 @@
+---
+- name: Install kubectl
+  win_chocolatey:
+    name: kubernetes-cli
+    state: present
+  when: ansible_os_family == "Windows"

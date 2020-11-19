@@ -1,32 +1,9 @@
 ---
 - name: "Install common devops tools"
   hosts: all
-  
-  tasks:
-    - name: Install terraform
-      win_chocolatey:
-        name: terraform
-        state: present
-      ignore_errors: yes
-      tags: terraform
 
-    - name: Install kubectl
-      win_chocolatey:
-        name: kubernetes-cli
-        state: present
-      ignore_errors: yes
-      tags: kubectl
-
-    - name: Install lazydocker
-      win_chocolatey:
-        name: lazydocker
-        state: present
-      ignore_errors: yes
-      tags: lazydocker
-
-    - name: Install k9s
-      win_chocolatey:
-        name: k9s
-        state: present
-      ignore_errors: yes
-      tags: k9s
+  roles:
+    - { role: terraform }
+    - { role: kubectl }
+    - { role: lazydocker }
+    - { role: k9s }
