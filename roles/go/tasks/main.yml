@@ -1,0 +1,6 @@
+---
+- name: Install go
+  win_chocolatey:
+    name: go
+    state: present
+  when: ansible_os_family == "Windows"

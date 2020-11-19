@@ -1,0 +1,6 @@
+---
+- name: Install nodejs
+  win_chocolatey:
+    name: nodejs-lts
+    state: present
+  when: ansible_os_family == "Windows"
