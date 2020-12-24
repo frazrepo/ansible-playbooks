@@ -4,3 +4,9 @@
     name: go
     state: present
   when: ansible_os_family == "Windows"
+
+- name: Install go
+  become: yes
+  apt: name=golang-go update_cache=yes state=latest
+  ignore_errors: yes
+  when: ansible_os_family == "Debian"
