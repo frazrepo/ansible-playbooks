@@ -1,8 +1,8 @@
 ---
 - name: Install k9s
-  include_tasks: include/windows.yml
+  include_tasks: windows.yml
   when: ansible_os_family == "Windows"
 
 - name: Install k9s
-  include_tasks: include/debian.yml
+  include_tasks: debian.yml
   when: ansible_os_family == "Debian"

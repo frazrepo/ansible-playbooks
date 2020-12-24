@@ -10,18 +10,9 @@
       ignore_errors: yes
       tags: docker 
 
-    - stat:
-        path: /usr/local/bin/kubectl
-      register: kubectl_file  
-      tags: kubectl
-
     - name: Install kubectl
-      become: yes
-      shell: | 
-        curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-        chmod +x ./kubectl
-        sudo mv ./kubectl /usr/local/bin/kubectl
-      when: kubectl_file.stat.exists == false
+      import_role:
+        name: kubectl
       ignore_errors: yes
       tags: kubectl
 

@@ -1,0 +1,5 @@
+---
+- name: Install kubectl
+  win_chocolatey:
+    name: kubernetes-cli
+    state: present

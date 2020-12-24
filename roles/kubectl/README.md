@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Install nodejs on Windows or Linux
+Install kubectl, kubernetes api client
 
 Requirements
 ------------
@@ -23,5 +23,5 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: nodejs }
+         - { role: kubectl }
 
