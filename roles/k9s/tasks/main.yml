@@ -1,6 +1,8 @@
 ---
 - name: Install k9s
-  win_chocolatey:
-    name: k9s
-    state: present
+  include_tasks: include/windows.yml
   when: ansible_os_family == "Windows"
+
+- name: Install k9s
+  include_tasks: include/debian.yml
+  when: ansible_os_family == "Debian"

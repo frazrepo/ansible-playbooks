@@ -68,26 +68,9 @@
       ignore_errors: yes
       tags: lazydocker
 
-    - stat:
-        path: /usr/local/bin/k9s
-      register: k9s_file  
-      tags: k9s
-
-    - name: "Download k9s archive file"
-      unarchive:
-          src: https://github.com/derailed/k9s/releases/download/v0.20.5/k9s_Linux_x86_64.tar.gz
-          dest: /tmp
-          remote_src: yes
-      when: k9s_file.stat.exists == false
-      ignore_errors: yes
-      tags: k9s
-
-    - name: "Install k9s"
-      copy:
-        src: "/tmp/k9s"
-        dest: "/usr/local/bin/k9s"
-        remote_src: yes
-      when: k9s_file.stat.exists == false
+    - name: Install k9s
+      import_role:
+        name: k9s
       ignore_errors: yes
       tags: k9s
 
