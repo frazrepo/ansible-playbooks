@@ -1,0 +1,26 @@
+- name: "Install Vim and related tools (ag, vifm)"
+  become: yes
+  apt: name= {{ item }} update_cache=yes state=latest
+  with_items:
+    - vim
+    - silversearcher-ag
+    - vifm
+
+- name: "Check vimrc repository directory"
+  stat:
+    path: "{{ vim_dir }}" 
+  register: vimrc_dir
+
+- name: "Pull vimrc repository"
+  git: repo={{repo_url}} dest={{vim_dir}} version=master
+  ignore_errors: yes
+  when: vimrc_dir.stat.exists == false
+
+- name: Display Vim Installation Directory
+  debug:
+    msg: '{{vim_dir}}'
+
+- name: Install vimrc
+  command: '{{vim_dir}}/install.sh'
+  args:
+    chdir: '{{vim_dir}}'

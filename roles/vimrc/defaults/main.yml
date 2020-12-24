@@ -1,0 +1,3 @@
+repo_url: https://github.com/frazrepo/vimrc.git
+repo_version: master
+vim_dir : '{{ ansible_env.HOME }}/.vim_runtime'
